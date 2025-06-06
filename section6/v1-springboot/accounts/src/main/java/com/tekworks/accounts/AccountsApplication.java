@@ -1,5 +1,6 @@
 package com.tekworks.accounts;
 
+import com.tekworks.accounts.dto.AccountsContactInfoDto;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -7,6 +8,7 @@ import io.swagger.v3.oas.annotations.info.License;
 import lombok.Builder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
@@ -29,6 +31,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 )
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
+@EnableConfigurationProperties(value = {
+		AccountsContactInfoDto.class})
 public class AccountsApplication {
 
 	public static void main(String[] args) {
