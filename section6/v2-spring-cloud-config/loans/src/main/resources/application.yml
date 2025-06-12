@@ -1,39 +1,27 @@
-
-
 server:
   port: 8090
+
 spring:
   application:
     name: loans
-    datasource:
-      url: jdbc:h2:mem:testdb
-      driverClassName: org.h2.Driver
-      username: sa
-      password: ''
-      h2:
-        console:
-          enabled: true
-      jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
-        hibernate:
-          ddl-auto: update
-        show-sql: true
-      config:
-        import:
-          - "application_qa.yml"
-          - "application_prod.yml"
-      profiles:
-        active:
-          - qa
+  profiles:
+    active: prod
 
-build:
-  version: "3.0"
-loans:
-  message: "Welcome to Bank Loans related APIs "
-  contactDetails:
-    name: "RaviKumar - Product Owner"
-    email: "RaviKumar@bank.com"
-  onCallSupport:
-    - (453) 392-4829
-    - (236) 203-0384
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
 
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  config:
+    import: optional:configserver:http://localhost:8071
