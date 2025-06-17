@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="configserver" />
+        <module name="accounts" />
       </profile>
       <profile name="Annotation profile for loans" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -18,7 +19,6 @@
         </processorPath>
         <module name="loans" />
         <module name="cards" />
-        <module name="accounts" />
       </profile>
     </annotationProcessing>
   </component>

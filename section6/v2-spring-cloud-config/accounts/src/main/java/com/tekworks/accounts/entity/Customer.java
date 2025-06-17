@@ -1,7 +1,6 @@
 package com.tekworks.accounts.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 public class Customer extends BaseEntity {
