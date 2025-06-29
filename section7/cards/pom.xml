@@ -48,9 +48,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--		<dependency>-->
+        <!--			<groupId>com.h2database</groupId>-->
+        <!--			<artifactId>h2</artifactId>-->
+        <!--			<scope>runtime</scope>-->
+        <!--		</dependency>-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -123,7 +128,7 @@
                 <version>3.3.2</version>
                 <configuration>
                     <to>
-                        <image>ashok0202/${project.artifactId}:s6</image>
+                        <image>ashok0202/${project.artifactId}:s7</image>
                     </to>
                 </configuration>
             </plugin>
