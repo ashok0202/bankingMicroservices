@@ -44,6 +44,7 @@ public class LoansServiceImpl implements LoansService {
         newLoan.setTotalLoan(LoansConstants.NEW_LOAN_LIMIT);
         newLoan.setAmountPaid(0);
         newLoan.setOutstandingAmount(LoansConstants.NEW_LOAN_LIMIT);
+
         return newLoan;
     }
 
