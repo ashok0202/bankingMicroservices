@@ -21,14 +21,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomersServiceImpl implements CustomersService {
 
+    private final AccountsRepository accountsRepository;
+    private final CustomerRepository customerRepository;
+    private final CardsFeignClient cardsFeignClient;
+    private final LoansFeignClient loansFeignClient;
+
     @Autowired
-    private AccountsRepository accountsRepository;
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
-    private CardsFeignClient cardsFeignClient;
-    @Autowired
-    private LoansFeignClient loansFeignClient;
+    public CustomersServiceImpl(AccountsRepository accountsRepository, CustomerRepository customerRepository, CardsFeignClient cardsFeignClient, LoansFeignClient loansFeignClient) {
+        this.accountsRepository = accountsRepository;
+        this.customerRepository = customerRepository;
+        this.cardsFeignClient = cardsFeignClient;
+        this.loansFeignClient = loansFeignClient;
+    }
 
     /**
      * @param mobileNumber - Input Mobile Number

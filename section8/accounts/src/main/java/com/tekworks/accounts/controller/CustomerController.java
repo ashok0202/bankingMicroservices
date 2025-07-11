@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Tag(
-        name = "REST API for Customers in EazyBank",
-        description = "REST APIs in EazyBank to FETCH customer details"
+        name = "REST API for Customers in Bank",
+        description = "REST APIs in Bank to FETCH customer details"
 )
 @RestController
 @RequestMapping(path="/api", produces = {MediaType.APPLICATION_JSON_VALUE})

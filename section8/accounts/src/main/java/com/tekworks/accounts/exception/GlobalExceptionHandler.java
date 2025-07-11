@@ -54,6 +54,7 @@ public class GlobalExceptionHandler {
         );
         return new  ResponseEntity<>(errorResponseDto, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception ex, WebRequest request) {
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(

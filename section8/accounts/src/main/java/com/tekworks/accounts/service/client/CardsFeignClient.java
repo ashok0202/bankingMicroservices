@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Configuration
-@FeignClient("cards/api")
+
+@FeignClient("cards")
 public interface CardsFeignClient {
 
-    @GetMapping(value = "/fetch",consumes = "application/json")
+    @GetMapping(value = "/api/fetch",consumes = "application/json")
     public ResponseEntity<CardsDto> fetchCardDetails(@RequestParam String mobileNumber);
 
 }
