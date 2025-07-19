@@ -1,14 +1,17 @@
 spring:
   application:
-    name: gatewayserver
+    name: "gatewayserver"
   config:
     import: "optional:configserver:http://localhost:8071/"
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: false
-          lowerCaseServiceId: true
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
+
 management:
   endpoints:
     web:
@@ -20,8 +23,15 @@ management:
   info:
     env:
       enabled: true
+
 info:
   app:
-    name: gatewayserver
-    description: "Bank gateway server for microservices"
+    name: "gatewayserver"
+    description: "Bank Gateway Server Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      tekworks:
+        gatewayserver: "DEBUG"
