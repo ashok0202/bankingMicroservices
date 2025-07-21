@@ -4,7 +4,6 @@ import com.tekworks.accounts.dto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -12,9 +11,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -55,6 +53,20 @@ public class GlobalExceptionHandler {
         return new  ResponseEntity<>(errorResponseDto, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<ErrorResponseDto> handleFeignException(CustomException ex, WebRequest request) {
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto(
+                request.getDescription(false),
+                HttpStatus.valueOf(ex.getStatus()),
+                ex.getErrorCode(),
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+
+
+        return new ResponseEntity<>(errorResponseDto, HttpStatus.valueOf(ex.getStatus()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDto> handleGlobalException(Exception ex, WebRequest request) {
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(
@@ -66,4 +78,6 @@ public class GlobalExceptionHandler {
         );
         return new  ResponseEntity<>(errorResponseDto, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
 }
