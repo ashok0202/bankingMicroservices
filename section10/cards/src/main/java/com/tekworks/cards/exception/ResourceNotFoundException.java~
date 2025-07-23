@@ -1,0 +1,4 @@
+package com.tekworks.cards.exception;
+
+public class ResourceNotFoundException {
+}
