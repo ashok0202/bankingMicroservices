@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.tekworks.accounts.dto.ErrorResponseDto;
 import com.tekworks.accounts.exception.CustomException;
-import com.tekworks.accounts.exception.ResourceNotFoundException;
-import com.tekworks.accounts.external.response.ErrorResponse;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.slf4j.Logger;
