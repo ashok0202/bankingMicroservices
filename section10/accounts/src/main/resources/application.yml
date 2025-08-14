@@ -22,7 +22,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true  # moved outside hibernate (Spring Boot expects it here)
+    show-sql: true
 
   config:
     import: optional:configserver:http://localhost:8071
